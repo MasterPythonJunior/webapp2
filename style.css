@@ -1,0 +1,238 @@
+/* General Resets and Body Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Example font */
+    background-color: #1a0f02; /* Dark background, adjust as needed */
+    color: #fff; /* Default text color */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Added rule to remove underline from links and inherit color */
+a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent, or set a specific color like #ffd700 */
+}
+
+.container {
+    max-width: 400px; /* Approximate mobile width, adjust as needed */
+    margin: 0 auto;
+    background-image: url('pumpkin_background_pattern.png'); /* If you have a repeating pumpkin pattern */
+    background-repeat: repeat;
+    background-size: auto; /* Adjust as needed */
+    min-height: 100vh; /* Ensure it takes full height */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Optional: subtle shadow */
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 10px;
+    background-color: #2c1a06; /* Slightly lighter dark for header */
+    border-bottom: 1px solid #4a300d;
+    position: relative; /* For the 'New!' label */
+}
+
+.header-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8em;
+    color: #ffd700; /* Gold/yellowish color for text */
+}
+
+/* Apply styles to both img and svg within header-item */
+.header-item img,
+.header-item svg {
+    width: 24px; /* Adjust icon size */
+    height: 24px;
+    /* Ensure SVG icon also gets the golden fill color */
+    fill: #ffd700;
+}
+
+.new-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.7em;
+    border-bottom-right-radius: 8px;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    left: -20px; /* Adjust to position the rotated label */
+    top: 5px;
+    width: 70px; /* Adjust width after rotation */
+    text-align: center;
+    overflow: hidden; /* Hide excess */
+}
+
+.new-label img {
+    display: none; /* Hide the image if it's just text */
+}
+
+
+.dream-button button {
+    background-color: #ff8c00; /* Orange color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+}
+
+.dream-button button:hover {
+    background-color: #e67e00;
+}
+
+/* Competition Banner */
+.competition-banner {
+    background-color: #3b2a0c; /* Darker brown/orange */
+    padding: 20px;
+    margin: 20px 10px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5); /* Inner shadow for depth */
+    position: relative; /* For potential background texture */
+    overflow: hidden; /* To contain elements properly */
+}
+
+.competition-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('gold_texture.png'); /* If you have a gold texture */
+    background-size: cover;
+    opacity: 0.1; /* Subtle overlay */
+    z-index: 0;
+}
+
+.competition-banner img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+    z-index: 1; /* Bring image to front */
+    position: relative;
+}
+
+.learn-more-button {
+    background-color: #1e90ff; /* Dodger blue */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+    z-index: 1; /* Bring button to front */
+    position: relative;
+}
+
+.learn-more-button:hover {
+    background-color: #1c86ee;
+}
+
+/* Items Grid */
+.items-grid {
+    display: grid;
+    /* Default for larger screens or desktop */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 3 columns or more */
+    gap: 15px;
+    padding: 0 10px 20px;
+}
+
+/* Media query for smaller screens (e.g., phones) */
+@media (max-width: 600px) {
+    .items-grid {
+        grid-template-columns: repeat(2, 1fr); /* Force 2 columns for screens up to 600px wide */
+    }
+}
+
+.grid-item {
+    background-color: #3b2a0c; /* Similar to banner background */
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 120px; /* Ensure consistent height */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 1px solid #5a401c; /* Subtle border */
+    transition: transform 0.2s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.grid-item img {
+    max-width: 70%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.grid-item span {
+    font-size: 0.85em;
+    color: #f0c270; /* Lighter golden for text */
+    margin-bottom: 8px;
+    word-break: break-word; /* For long texts */
+}
+
+.grid-item button {
+    background-color: #ff8c00; /* Orange color */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Keep button text on one line */
+}
+
+.grid-item button:hover {
+    background-color: #e67e00;
+}
+
+.grid-item.special-offer {
+    border: 2px solid #ffd700; /* Gold border for special items */
+    background-color: #4a300d; /* Slightly different background for special */
+}
+
+/* Footer Styles (if applicable) */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 10px;
+    background-color: #2c1a06; /* Same as header */
+    border-top: 1px solid #4a300d;
+    position: sticky; /* Or fixed, depending on desired behavior */
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-item img {
+    width: 30px; /* Larger icons for bottom nav */
+    height: 30px;
+}
